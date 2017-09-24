@@ -50,7 +50,7 @@ python test_combine.py -p "test"
 
 -p indicates the directory where test images are placed.
 
-The predicted images are labeled with bounding boxes and tags. They are saved in the "predicted_image" directory. 50 images from the dataset are selected for object detection.
+The predicted images are labeled with bounding boxes and tags. They are saved in the "predicted_image" directory. 53 images from the dataset are selected for object detection.
 
 Note: please replace the model_rpn.load_weights() and model_classifier.load_weights() with trained weights from the datasets.
 
