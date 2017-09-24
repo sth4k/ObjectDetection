@@ -30,6 +30,8 @@ python train_frcnn.py -o simple -p "list_bbox_consumer2shop.txt"
 
 train_frcnn.py is used to train the DeepFashion model, with a pre-trained weights from ResNet50. -o shows the parser to preprocess the annotation file. -p indicates the image directory. The weights are saved in the format of "model_frcnn.hdf5_epoch_n" where n shows the epochs the weight is saved
 
+preprocessing: the dataset contain images for both man's and woman's apparels. Since the testset contains only woman's apparels' images, we removed man's apparels' images (/img/CLOTHING). 
+
 2. Artelab Dataset
 Before training, please download the dataset and the annotation file, and place in the directory of "artelab".
 
@@ -37,6 +39,8 @@ The full command is:
 python train.py -o artelab -p artelab/ObjectsSegmentationFashion_v1.0/
 
 train.py is used to train the Artelab model, with a pre-trained weights from ResNet50. -o shows the parser to preprocess the annotation file. -p indicates the image directory. The weights are saved in the format of "artelab.hdf5_epoch_n" where n shows the epochs the weight is saved
+
+Preprocessing: Man's apparels' images are removed, only 'drezzy_women_clothing' and 'drezzy_women_underwear' are used.
 
 Prediction:
 
