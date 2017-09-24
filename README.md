@@ -23,19 +23,25 @@ Training:
 We trained on the DeepFashion and Artelab Datasets separately, since the annotation file for the two datasets are in different format and requires different pre-processing codes.
 1. DeepFashion Dataset
 Before training, please download the dataset and the annotation file "list_bbox_consumer2shop.txt", and place in the root directory.
+
 The full command is:
 python train_frcnn.py -o simple -p "list_bbox_consumer2shop.txt"
 
 train_frcnn.py is used to train the DeepFashion model, with a pre-trained weights from ResNet50. -o shows the parser to preprocess the annotation file. -p indicates the image directory. The weights are saved in the format of "model_frcnn.hdf5_epoch_n" where n shows the epochs the weight is saved
+
 2. Artelab Dataset
-Before training, please download the dataset and the annotation file, and place in the directory of "artelab"
-The full command is below:
+Before training, please download the dataset and the annotation file, and place in the directory of "artelab".
+
+The full command is:
 python train.py -o artelab -p artelab/ObjectsSegmentationFashion_v1.0/
+
 train.py is used to train the Artelab model, with a pre-trained weights from ResNet50. -o shows the parser to preprocess the annotation file. -p indicates the image directory. The weights are saved in the format of "artelab.hdf5_epoch_n" where n shows the epochs the weight is saved
 
 Prediction:
 The two datasets cover different types of woman apparels, so the predictions are combined.
+
 python test_combine.py -p "test"
+
 -p indicates the directory where test images are placed.
 The predicted images are labeled with bounding boxes and tags. They are saved in the "predicted_image" directory. 50 images from the dataset are selected for object detection.
 Note: please replace the model_rpn.load_weights() and model_classifier.load_weights() with trained weights from the datasets.
