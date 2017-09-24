@@ -13,8 +13,11 @@ USAGE:
 Both theano and tensorflow backends are supported. However compile times are very high in theano, and tensorflow is highly recommended.
 
 requirements:
-keras:
-tensorflow:
+keras version: 2.0.2
+tensorflow: 1.2.1
+numpy: 1.13.1
+cv2: 3.2.0
+
 
 Training:
 We trained on the DeepFashion and Artelab Datasets separately, since the annotation file for the two datasets are in different format and requires different pre-processing codes.
@@ -32,9 +35,14 @@ train.py is used to train the Artelab model, with a pre-trained weights from Res
 Prediction:
 The two datasets cover different types of woman apparels, so the predictions are combined.
 python test_combine.py -p "test"
--p indicates the directory where test images are place.
-The predicted images are labeled with bounding boxes and tags in the "predicted_image" directory.
+-p indicates the directory where test images are placed.
+The predicted images are labeled with bounding boxes and tags. They are saved in the "predicted_image" directory. 50 images from the dataset are selected for object detection.
 Note: please replace the model_rpn.load_weights() and model_classifier.load_weights() with trained weights from the datasets.
 
 
 Example output:
+![alt text](https://github.com/sth4k/ObjectDetection/blob/master/predicted_image/1.png)
+![alt text](https://github.com/sth4k/ObjectDetection/blob/master/predicted_image/2.png)
+![alt text](https://github.com/sth4k/ObjectDetection/blob/master/predicted_image/20.png)
+
+
